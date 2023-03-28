@@ -84,7 +84,20 @@ export async function requireUserId(
   const userId = session.get('userId')
   if (!userId || typeof userId !== 'string') {
     const searchParams = new URLSearchParams([['redirectTo', redirectTo]])
-    throw redirect('login?${searchParams}')
+    throw redirect(`/login?${searchParams}`)
+  }
+  return userId
+}
+
+export async function requireAdminUserId(
+  request: Request,
+  redirectTo: string = new URL(request.url).pathname
+) {
+  const session = await getUserSession(request)
+  const userId = session.get('userId')
+  if (userId !== '641e5713762eecace076237d') {
+    const searchParams = new URLSearchParams([['redirectTo', redirectTo]])
+    throw redirect(`/login?${searchParams}`)
   }
   return userId
 }

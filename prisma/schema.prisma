@@ -11,28 +11,27 @@ datasource db {
 }
 
 model User {
-  id String @id @map("_id") @default(auto()) @db.ObjectId
-  email String @unique
-  password String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  profile Profile
+  profile   Profile
 }
 
 type Profile {
   firstName String
-  lastName String
-  username String
+  lastName  String
+  username  String
 }
 
 model Galleries {
-  id String @id @map("_id") @default(auto()) @db.ObjectId
-  galleryName String @unique
-  updatedAt DateTime @updatedAt
-  galleryImages GalleryImages
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  galleryName String  @unique
+  gallery     Gallery
 }
 
-type GalleryImages {
-  images String
+type Gallery {
   imageName String
+  image     String
 }

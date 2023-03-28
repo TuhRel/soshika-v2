@@ -5,10 +5,10 @@ import Footer from "./footer";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-serif">
-    <Navbar />
+    <div className="font-serif h-screen w-full">
+    {/* <Navbar /> */}
     {children}
-    <Footer />
+    {/* <Footer /> */}
     </div>
   )
 }

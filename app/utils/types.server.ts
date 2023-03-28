@@ -10,3 +10,11 @@ export interface LoginForm {
   email: string;
   password: string
 }
+
+export interface ImageForm {
+  galleryName: string
+  galleryImages: {
+    images: string
+    imageName: string
+  }
+}

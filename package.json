@@ -8,8 +8,12 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.300.0",
+    "@aws-sdk/lib-storage": "^3.300.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@mantine/core": "^6.0.4",
+    "@mantine/dropzone": "^6.0.4",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.14",
     "@prisma/client": "^4.11.0",
@@ -21,7 +25,8 @@
     "cuid": "^3.0.0",
     "isbot": "^3.6.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tabler-icons-react": "^1.56.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.14.3",
