@@ -9,10 +9,10 @@ import {
 const s3 = new S3({
     accessKeyId: process.env.SSP_ACCESS_KEY_ID,
     secretAccessKey: process.env.SSP_SECRET_ACCESS_KEY,
-  })
+})
 
 const uploadHandler: UploadHandler = async ({ name, filename, data }) => {
-  if (name !== "photos") return
+  if (name !== 'photos') return
 
   let image: Uint8Array = new Uint8Array([])
 
@@ -35,7 +35,7 @@ export async function uploadImages(request: Request) {
     uploadHandler
   )
 
-  const file = formData.get('image')?.toString() || ''
+  const file = formData.get('photos')?.toString() || ''
 
   return file
 }

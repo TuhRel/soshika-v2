@@ -25,12 +25,12 @@ export function FormField({
 
   return (
     <>
-    <label htmlFor={htmlFor} className='text-black font-semibold'>{label}</label>
+    <label htmlFor={htmlFor} className='text-black font-light'>{label}</label>
 
     <input onChange={e => {
       onChange(e)
       setErrorText('')
-    }} type={type} id={htmlFor} name={htmlFor} className='w-full p-2 my-2' value={value} />
+    }} type={type} id={htmlFor} name={htmlFor} className=' border rounded border-solid border-slate-900 p-1' value={value} />
 
     <div className='text-xs font-semibold text-center tracking-wide text-red-500 w-full'>
       {errorText || ''}

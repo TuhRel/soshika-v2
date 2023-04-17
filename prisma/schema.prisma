@@ -19,19 +19,56 @@ model User {
   profile   Profile
 }
 
+model Contact {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  email     String
+  firstName String
+  lastName  String
+  phone     String
+  message   String
+  service   String
+}
+
 type Profile {
   firstName String
   lastName  String
   username  String
 }
 
-model Galleries {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  galleryName String  @unique
-  gallery     Gallery
+// model Galleries {
+//   id          String  @id @default(auto()) @map("_id") @db.ObjectId
+//   galleryName String  @unique
+//   gallery     Gallery
+// }
+
+model BrandingGallery {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  imageName String @unique
 }
 
-type Gallery {
-  imageName String
-  image     String
+model CouplesGallery {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  imageName String @unique
+}
+
+model GraduationGallery {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  imageName String @unique
+}
+
+model MaternityGallery {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  imageName String @unique
+}
+
+model PortraitGallery {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  imageName String @unique
+}
+
+model WeddingGallery {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  imageName String @unique
 }

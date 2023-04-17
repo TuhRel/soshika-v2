@@ -1,20 +1,21 @@
-export interface RegisterForm {
+export type RegisterForm = {
   email: string;
   password: string;
   firstName: string;
-  lastName: string
+  lastName: string;
   username: string
 }
 
-export interface LoginForm {
+export type LoginForm = {
   email: string;
   password: string
 }
 
-export interface ImageForm {
-  galleryName: string
-  galleryImages: {
-    images: string
-    imageName: string
-  }
+export type ContactForm = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string
 }

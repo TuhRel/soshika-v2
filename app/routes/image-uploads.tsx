@@ -7,10 +7,17 @@ export const action: ActionFunction = async ({ request }) => {
   // 1
   const userId = await requireUserId(request);
   // 2
-  const imageUrl = await uploadAvatar(request);
+  const imageUrl = await uploadImages(request);
 
   // 3
-  await prisma.galleries.
+  await prisma.galleries.create({
+    data: {
+      galleryName: imageUrl,
+      gallery: {
+        imageName: imageUrl
+      },
+    },
+  })
 
   // 4
   return json({ imageUrl });

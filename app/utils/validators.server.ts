@@ -16,3 +16,7 @@ export const validatePassword = (password: string): string | undefined => {
 export const validateName = (name: string): string | undefined => {
   if(!name.length) return 'Please enter a value'
 }
+
+export const validatePhone = (phone: string): string | undefined => {
+  if(phone.length !== 10) return 'Please enter a valid 10 digit phone number (ex. 1234567890)'
+}

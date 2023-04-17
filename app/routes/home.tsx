@@ -8,7 +8,6 @@ import PortfolioBanner from "~/components/portfolio-banner";
 import Portfolio from "~/components/portfolio";
 import { getOtherUsers } from "~/utils/users.server";
 import { useLoaderData } from "@remix-run/react";
-import { UserPanel } from "~/components/user-panel";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const userId = await requireUserId(request)
@@ -21,11 +20,10 @@ export default function Home() {
 
   return (
     <Layout>
-      <UserPanel users={users}/>
-      {/* <HeroSection /> */}
-      {/* <SubmenuBanner /> */}
-      {/* <Submenu /> */}
-      {/* <PortfolioBanner /> */}
-      {/* <Portfolio /> */}
+      <HeroSection />
+      <SubmenuBanner />
+      <Submenu />
+      <PortfolioBanner />
+      <Portfolio />
     </Layout>  )
 }
