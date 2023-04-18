@@ -5,6 +5,7 @@ import { ActionFunction, json } from "@remix-run/node";
 import { useActionData } from "@remix-run/react";
 import { validateEmail, validateName, validatePhone } from "~/utils/validators.server";
 import { sendContact } from "~/utils/contact.server";
+import image from "~/images/contactPage/contact-form-img.jpg"
 
 export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
@@ -114,19 +115,19 @@ export default function Contact() {
 
   return (
     <Layout>
-      <div className="flex flex-col w-full justify-center items-center bg-slate-100 h-full p-10">
-        <div className="grid grid-cols-2 gap-5 w-full mt-20">
-          <div className="flex flex-col w-full justify-center items-center object-cover overflow-hidden">
-            Photo
+      <div className="flex flex-col w-full h-full justify-center items-center bg-slate-100">
+        <div className="grid grid-cols-2 gap-5 w-full h-full mt-20">
+          <div className="flex flex-col w-full justify-center items-center bg-[url('~/images/contactPage/contact-form-img.jpg')] bg-cover">
+            {/* <img src={image} alt="alt" /> */}
           </div>
           <div className="flex flex-col w-full justify-center items-center object-cover overflow-hidden">
-            <form onSubmit={() => setUploadSuccess(true)} action='/contact' method="POST" className="flex flex-col w-full justify-center items-center">
+            <form onSubmit={() => setUploadSuccess(true)} action='/contact' method="POST" className="flex flex-col w-full justify-center items-center p-5">
               <h1 className="text-2xl font-light tracking-widest text-center uppercase p-5">
                 Let's Connect
               </h1>
               {formError}
               <div className="flex justify-center items-center w-full gap-3">
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full py-2.5">
                   <FormField
                     htmlFor="firstName"
                     label="First Name"
@@ -134,7 +135,7 @@ export default function Contact() {
                     onChange={e => handleInputChange(e, 'firstName')}
                     error={errors?.firstName} />
                 </div>
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full py-2.5">
                 <FormField
                   htmlFor="lastName"
                   label="Last Name"
@@ -144,7 +145,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="flex justify-center items-center w-full">
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full py-2.5">
                   <FormField
                     htmlFor="email"
                     label="Email"
@@ -154,7 +155,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="flex justify-center items-center w-full">
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full py-2.5">
                   <FormField
                     htmlFor="phone"
                     label="Phone"
@@ -164,7 +165,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="flex justify-center items-center w-full">
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full py-2.5">
                   <FormField
                     htmlFor="service"
                     label="Service (i.e wedding, birthday, maternity, etc...)"
@@ -174,7 +175,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="flex justify-center items-center w-full">
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full py-2.5">
                   <FormField
                     htmlFor="message"
                     label="Message"

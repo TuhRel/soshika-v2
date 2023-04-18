@@ -1,13 +1,15 @@
 import TrendingFlat from "@mui/icons-material/TrendingFlat";
 import { Box } from "@mui/material";
 import { Link } from "@remix-run/react";
+import image1 from "~/images/submenu/woods-photoshoot-1.jpg"
+import image2 from "~/images/submenu/woods-photoshoot-2.jpg"
 
 export default function Submenu() {
   return (
     <div className="flex flex-col h-screen -h-20 w-full justify-center items-center bg-slate-100">
       <div className="grid grid-cols-3 h-full w-full bg-stone-300">
         <Box className="flex object-cover h-full">
-          Photo
+          <img className="object-cover" src={image1} alt="alt" />
         </Box>
         <Box className="grid grid-rows-3 justify-center items-center tracking-wider uppercase py-24 px-5">
           <Link to='/' className="flex flex-col justify-center items-center cursor-pointer hover:scale-110 transition-all ease-in-out">
@@ -39,7 +41,7 @@ export default function Submenu() {
           </Link>
         </Box>
         <Box className="flex object-cover h-full">
-          Photo
+          <img className="object-cover" src={image2} alt="alt" />
         </Box>
       </div>
     </div>

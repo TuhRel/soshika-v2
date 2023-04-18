@@ -4,6 +4,7 @@ import {
   unstable_parseMultipartFormData,
   type UploadHandler
 } from '@remix-run/node'
+import { prisma } from './prisma.server'
 
 
 const s3 = new S3({
@@ -39,3 +40,54 @@ export async function uploadImages(request: Request) {
 
   return file
 }
+
+// Get existing s3 bucket item(s) URL(s)
+export const getImageUrls = async () => {
+
+  const bucketName = process.env.SSP_BUCKET_NAME || ''
+  const prefix = 'branding-images/'
+  const listObjectsParams = {
+    Bucket: bucketName,
+    Prefix: prefix
+  }
+
+  try {
+    const data = await s3.listObjectsV2(listObjectsParams).promise()
+
+    const urls = data.Contents?.map(obj => {
+      return `https://${bucketName}.s3.amazonaws.com/${obj.Key}`
+    })
+
+    console.log(urls)
+
+    await prisma?.brandingGallery?.createMany({
+      data: {
+        imageName: urls?.map((url) => ({ url })).toString() || ''
+      }
+    })
+
+    console.log('Upload Success')
+  } catch (err) {
+    console.error(err)
+  }
+  // s3.listObjectsV2(listObjectsParams, (err, data) => {
+  //   if (err) {
+  //     console.log(err)
+  //     return
+  //   }
+  
+    // const urls = data.Contents?.map(obj => {
+    //   return `https://${bucketName}.s3.amazonaws.com/${obj.Key}`
+    // })
+  
+    // console.log(urls)
+
+    // prisma?.brandingGallery?.create({
+    //   data: {
+    //     imageName: urls?.map((url) => ({ url })).toString() || ''
+    //   }
+    // })
+  // })
+}
+
+// Store existing s3 bucket item(s) URL(s) in MongoDB

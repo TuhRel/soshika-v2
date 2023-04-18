@@ -4,7 +4,7 @@ import { Link } from "@remix-run/react";
 export default function Navbar() {
 
   return (
-    <nav className='fixed top-0 content-center md:h-20 pl-12 pr-12 w-full font-thin backdrop-blur-sm z-10'>
+    <nav className='fixed top-0 content-center md:h-20 pl-12 pr-12 w-full font-thin backdrop-blur-sm bg-slate-100 z-10'>
         <div className='flex flex-row justify-between md:h-20 w-full items-center'>
           <Link to='/' prefetch='intent' className='tracking-wider uppercase'>
             SoShika Photography
@@ -27,7 +27,7 @@ export default function Navbar() {
                 </Link>
               </div>
               <div>
-                <Link to='/details' className='flex p-4 cursor-pointer hover:border-b hover:ease-in-out hover:border-b-black'>
+                <Link to='/information' className='flex p-4 cursor-pointer hover:border-b hover:ease-in-out hover:border-b-black'>
                   Details
                 </Link>
               </div>

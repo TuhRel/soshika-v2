@@ -7,7 +7,8 @@ export default function HeroSection() {
   return (
     <div className="flex h-screen w-full relative justify-center items-center bg-slate-100">
       <div className="flex items-center justify-center w-full h-full bg-[url('~/images/heroSection/lincoln-memorial-engagement.jpg')] bg-cover bg-fixed">
-        <div className="grid w-5/6 grid-cols-[80%_20%] pt-12 -m-32">
+        <div className="flex h-full w-screen items-center justify-center bg-cover backdrop-blur-sm">
+        <div className="grid z-10 w-5/6 grid-cols-[80%_20%] pt-12 -m-32">
           <div className="flex flex-row gap-6">
             <div className="flex h-96 scale-105">
               <img className="object-cover" src={image3} alt='alt' />
@@ -31,7 +32,8 @@ export default function HeroSection() {
               <h3 className="text-2xl font-light tracking-wider uppercase">SoShika <br/> Photography</h3>
             </div>
           </div>
-        </div>
+          </div>
+          </div>
       </div>
     </div>
   )

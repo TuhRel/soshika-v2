@@ -44,8 +44,8 @@ type Profile {
 // }
 
 model BrandingGallery {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  imageName String @unique
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  imageName String? @unique
 }
 
 model CouplesGallery {
