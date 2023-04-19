@@ -12,10 +12,10 @@ export type LoginForm = {
 }
 
 export type ContactForm = {
+  email: string;
   firstName: string;
   lastName: string;
-  email: string;
   phone: string;
-  service: string;
-  message: string
+  message: string;
+  service: string
 }
