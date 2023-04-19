@@ -5,7 +5,7 @@ import { Link } from "@remix-run/react";
 export default function Footer() {
   return (
     <>
-      <footer className='flex h-20 bottom-0 justify-center items-center bg-slate-100'>
+      <footer className='flex h-20 bottom-0 justify-center items-center bg-slate-50'>
         <div className='flex justify-center flex-col items-center'>
           <div className='text-base'>
             <Link to='' target='_blank' rel='noopener noreferrer' className='p-2.5'>
