@@ -15,7 +15,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function Gallery() {
   const { images } = useLoaderData<{images: string[]}>()
-  console.log(images)
+  // console.log(images)
 
   return (
     <>
