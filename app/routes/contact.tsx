@@ -1,21 +1,22 @@
 import { useEffect, useRef, useState } from "react";
-import { FormField } from "~/components/form-field";
+import { FormField, FormTextField } from "~/components/form-field";
 import { Layout } from "~/components/layout";
 import { ActionFunction, json } from "@remix-run/node";
 import { useActionData } from "@remix-run/react";
 import { validateEmail, validateName, validatePhone } from "~/utils/validators.server";
 import { sendContact } from "~/utils/contact.server";
 import image from "~/images/contactPage/contact-form-img.jpg"
+import sendEmail from "~/utils/email.server";
 
 export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
   const action = form.get("_action")
-  let email = form.get("email");
-  let firstName = form.get("firstName");
-  let lastName = form.get("lastName");
-  let phone = form.get("phone")
-  let message = form.get("message")
-  let service = form.get("service")
+  const email: string = form.get("email") as string;
+  const firstName: string = form.get("firstName") as string;
+  const lastName: string = form.get("lastName") as string;
+  const phone: string = form.get("phone") as string;
+  const message: string = form.get("message") as string;
+  const service: string = form.get("service") as string;
 
   // If not all data was passed, error
   if (
@@ -46,13 +47,22 @@ export const action: ActionFunction = async ({ request }) => {
   
   switch (action) {
     case 'contact': {
-      firstName = firstName as string
-      lastName = lastName as string
-      email = email as string
-      phone = phone as string
-      service = service as string
-      message = message as string
-      return await sendContact({ email, firstName, lastName, phone, message, service })
+      await sendEmail({
+        email,
+        firstName,
+        lastName,
+        phone,
+        message,
+        service,
+      })
+      return await sendContact({
+        email,
+        firstName,
+        lastName,
+        phone,
+        message,
+        service
+      })
     }
     default: 
       return json({error: 'Invalid Form Data'}, {status: 400})
@@ -84,23 +94,6 @@ export default function Contact() {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, field: string) => {
     setFormData(form => ({ ...form, [field]: event.target.value }))
   }
-  
-  // useEffect(() => {
-  //   // Clear the form if we switch forms
-  //   if (!firstLoad.current) {
-  //       const newState = {
-  //         email: '',
-  //         firstName: '',
-  //         lastName: '',
-  //         phone: '',
-  //         message: '',
-  //         service: ''
-  //       }
-  //       setErrors(newState)
-  //       setFormError('')
-  //       setFormData(newState)
-  //   }
-  // }, [action])
 
   useEffect(() => {
       if (!firstLoad.current) {
@@ -115,9 +108,9 @@ export default function Contact() {
 
   return (
     <Layout>
-      <div className="flex flex-col w-full h-full justify-center items-center bg-slate-100">
-        <div className="grid grid-cols-2 gap-5 w-full h-full mt-20">
-          <div className="flex flex-col w-full justify-center items-center bg-[url('~/images/contactPage/contact-form-img.jpg')] bg-cover">
+      <div className="flex flex-col w-full h-full justify-center items-center bg-slate-50">
+        <div className="md:grid md:grid-cols-2 gap-5 w-full h-full mt-20">
+          <div className="flex flex-col w-full justify-center items-center md:bg-[url('~/images/contactPage/contact-form-img.jpg')] bg-cover max-[640]:hidden">
             {/* <img src={image} alt="alt" /> */}
           </div>
           <div className="flex flex-col w-full justify-center items-center object-cover overflow-hidden">
@@ -126,23 +119,21 @@ export default function Contact() {
                 Let's Connect
               </h1>
               {formError}
-              <div className="flex justify-center items-center w-full gap-3">
-                <div className="flex flex-col w-full py-2.5">
-                  <FormField
-                    htmlFor="firstName"
-                    label="First Name"
-                    value={formData.firstName}
-                    onChange={e => handleInputChange(e, 'firstName')}
-                    error={errors?.firstName} />
-                </div>
-                <div className="flex flex-col w-full py-2.5">
+              <div className="flex flex-col w-full py-2.5">
                 <FormField
-                  htmlFor="lastName"
-                  label="Last Name"
-                  value={formData.lastName}
-                  onChange={e => handleInputChange(e, 'lastName')}
-                  error={errors?.lastName} /> 
-                </div>
+                  htmlFor="firstName"
+                  label="First Name"
+                  value={formData.firstName}
+                  onChange={e => handleInputChange(e, 'firstName')}
+                  error={errors?.firstName} />
+              </div>
+              <div className="flex flex-col w-full py-2.5">
+              <FormField
+                htmlFor="lastName"
+                label="Last Name"
+                value={formData.lastName}
+                onChange={e => handleInputChange(e, 'lastName')}
+                error={errors?.lastName} /> 
               </div>
               <div className="flex justify-center items-center w-full">
                 <div className="flex flex-col w-full py-2.5">
@@ -176,7 +167,7 @@ export default function Contact() {
               </div>
               <div className="flex justify-center items-center w-full">
                 <div className="flex flex-col w-full py-2.5">
-                  <FormField
+                  <FormTextField
                     htmlFor="message"
                     label="Message"
                     value={formData.message}
