@@ -25,6 +25,7 @@
     "bcryptjs": "^2.4.3",
     "cuid": "^3.0.0",
     "isbot": "^3.6.5",
+    "nodemailer": "^6.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tabler-icons-react": "^1.56.0"
@@ -33,6 +34,7 @@
     "@remix-run/dev": "^1.14.3",
     "@remix-run/eslint-config": "^1.14.3",
     "@types/bcryptjs": "^2.4.2",
+    "@types/nodemailer": "^6.4.7",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "autoprefixer": "^10.4.14",
