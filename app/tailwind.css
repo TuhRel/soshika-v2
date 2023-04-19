@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Noto Serif Display';
+  font-style: normal;
+  font-weight: 100 200 300 400;
+  src: url('node_modules/@fontsource/noto-serif-display/files/noto-serif-display-all-100-normal.woff') format('woff2'),
+       url('node_modules/@fontsource/noto-serif-display/files/noto-serif-display-all-200-normal.woff') format('woff'),
+       url('node_modules/@fontsource/noto-serif-display/files/noto-serif-display-all-300-normal.woff') format('woff'),
+       url('node_modules/@fontsource/noto-serif-display/files/noto-serif-display-all-400-normal.woff') format('woff');
+}
+
+@layer base {
+  html {
+    font-family: 'Noto Serif Display', serif;
+  }
+}

@@ -5,7 +5,7 @@ import Footer from "./footer";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-serif h-screen w-full">
+    <div className="h-screen w-full">
     <Navbar />
     {children}
     <Footer />

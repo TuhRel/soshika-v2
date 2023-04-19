@@ -1,6 +1,5 @@
 import { LoaderFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { Layout } from "~/components/layout";
 import { generatePresignedUrlsForFolder } from "~/utils/s3.server";
 
 
@@ -10,7 +9,7 @@ import { generatePresignedUrlsForFolder } from "~/utils/s3.server";
 // }
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const images = await generatePresignedUrlsForFolder('wedding-images', 600)
+  const images = await generatePresignedUrlsForFolder('branding-images', 600)
   return json({ images })
 }
 
@@ -19,12 +18,14 @@ export default function Gallery() {
   console.log(images)
 
   return (
-    <Layout>
-      <div className="grid grid-cols-4 w-full ">
-        {images?.map((image: string) => {
-          return <img src={image} alt='alt' key={image}/>
-        })}
-      </div>
-    </Layout>
+    <>
+    {images?.slice(1).map((image: string) => {
+      return (
+        <div className="flex flex-col object-cover justify-center items-center max-h-96 w-full overflow-hidden" key={image}>
+          <img src={image} alt='alt' />
+        </div>
+      )
+    })}
+    </>
   )
 }
