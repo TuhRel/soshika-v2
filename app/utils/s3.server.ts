@@ -27,7 +27,7 @@ export const generatePresignedUrlsForFolder = async (folderPath: string, expirat
     objectKeys.map((key) => generatePresignedUrl(key!, expirationTimeInSeconds))
   );
   
-  console.log(presignedUrls);
+  // console.log(presignedUrls);
   return presignedUrls;
 };
 

@@ -14,7 +14,7 @@ export const createContact = async (contact: ContactForm) => {
         message: contact.message
       }
     })
-    console.log('new contact:', newContact)
+    // console.log('new contact:', newContact)
   }
   catch (error) {
     console.log('error creating contact', error)
