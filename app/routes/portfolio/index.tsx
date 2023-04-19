@@ -1,11 +1,5 @@
-import { Layout } from "~/components/layout"
+import { LoaderFunction, redirect } from "@remix-run/node"
 
-export default function Portfolio() {
-  return (
-    <Layout>
-      <div className="flex flex-col h-screen w-full justify-center items-center bg-slate-100">
-        Porfolio
-      </div>
-    </Layout>
-  )
+export const loader: LoaderFunction = async ({ request }) => {
+  return redirect('/portfolio/main')
 }
