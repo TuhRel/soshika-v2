@@ -15,6 +15,7 @@
     "paths": {
       "~/*": ["./app/*"]
     },
+    "types": ["node", "nodemailer"],
 
     // Remix takes care of building everything in `remix build`.
     "noEmit": true
