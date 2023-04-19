@@ -5,11 +5,11 @@ export default function Gallery() {
 
   return (
     <Layout>
-      <div className="flex flex-col w-full bg-slate-100">
+      <div className="flex flex-col w-full bg-slate-50">
         <div className="flex flex-col w-full mt-20 justify-center items-center p-5">
           <div className="flex flex-row w-full py-10 px-0 tracking-widest justify-center">
             <div className="text-5xl font-thin tracking-widest">
-              Branding Photography
+              Photography Gallery
             </div>
           </div>
           <div className="grid grid-cols-4 items-center justify-center gap-3">
