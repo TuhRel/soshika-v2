@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "@remix-run/react";
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
+import Instagram from '@mui/icons-material/Instagram'
+import Facebook from '@mui/icons-material/Facebook'
 
 export default function Navbar() {
   const [toggle, setToggle] = useState(false)
@@ -21,6 +23,14 @@ export default function Navbar() {
   return (
     <nav className='fixed top-0 content-center h-14 md:h-20 md:pl-12 md:pr-12 w-full font-thin backdrop-blur-sm bg-slate-50 z-10'>
       {toggle && <div className="flex h-screen w-full items-center justify-center bg-slate-50 opacity-95 backdrop-blur-sm">
+        <div className='block fixed top-0 left-0 translate-x-[25%] translate-y-[50%] ml-2.5 mt-2.5 scale-150 text-base'>
+          <Link to='https://www.instagram.com/soshikaphotography' target='_blank' rel='noopener noreferrer' className='p-1.5'>
+            <Instagram className='scale-120' />
+          </Link>
+          <Link to='https://www.facebook.com/soshikaphotography0/' target='_blank' rel='noopener noreferrer' className='p-1.5'>
+            <Facebook className='scale-120' />
+          </Link>
+        </div>
         <div className="block fixed top-0 right-0 -translate-x-[50%] translate-y-[50%] mr-2.5 mt-2.5 scale-150" onClick={handleClose}>
           <CloseIcon />
         </div>
@@ -61,7 +71,7 @@ export default function Navbar() {
           <Link to='/' prefetch='intent' className='tracking-wider uppercase ml-5'>
             SoShika Photography
           </Link>
-          <div className='flex flex-row justify-between items-center h-full p-4 max-[640px]:hidden'>
+          <div className='flex flex-row justify-between items-center h-full p-4 max-md:hidden'>
             <div className='flex uppercase tracking-wider'>
               <div>
                 <Link to='/' prefetch='intent' className='flex p-4 cursor-pointer hover:border-b hover:ease-in-out hover:border-b-black'>
