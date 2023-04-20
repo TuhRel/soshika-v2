@@ -18,7 +18,7 @@ export default function Information() {
         </div>
       </div>
         <div className="flex w-full justify-center items-center bg-slate-50">
-          <div className="grid md:grid-cols-3 mt-24 bg-[#17141f50] gap-px justify-center items-center">
+          <div className="grid md:w-full md:grid-cols-3 mt-24 bg-[#17141f50] gap-px justify-center items-center">
             <div className="flex w-full flex-col justify-center items-center leading-9 bg-slate-50 p-6">
               <p className="text-center text-base uppercase tracking-widest">
                 Weddings

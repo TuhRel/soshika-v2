@@ -12,7 +12,7 @@ export default function Gallery() {
               Photography Gallery
             </div>
           </div>
-          <div className="grid grid-cols-4 items-center justify-center gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-center gap-3">
             <Outlet />
           </div>
         </div>
