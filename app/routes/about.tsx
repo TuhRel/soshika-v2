@@ -4,9 +4,9 @@ import image from '~/images/aboutPage/shika-johnson-photographer-1.jpg'
 export default function About() {
   return (
     <Layout>
-      <div className="flex flex-col w-full max-md:pt-16 justify-center items-center bg-slate-50">
+      <div className="flex flex-col w-full max-lg:pt-16 justify-center items-center bg-slate-50">
         <div className="flex h-full w-full justify-center items-center">
-          <div className="grid md:grid-cols-2 w-5/6 gap-2.5 md:mt-28 justify-center items-center">
+          <div className="grid lg:grid-cols-2 w-5/6 gap-2.5 lg:mt-28 justify-center items-center">
             <div className="flex flex-col w-full justify-center items-center h-full pb-5 bg-[#556b2f40]">
               <div className="mt-5 text-3xl font-base uppercase text-center font-extralight">
                 Meet the Photographer

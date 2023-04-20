@@ -6,7 +6,7 @@ export default function Information() {
 
   return (
     <Layout>
-    <div className="flex flex-col w-full justify-center items-center bg-slate-50">
+    <div className="flex flex-col md:h-screen w-full justify-center items-center bg-slate-50">
       <div className="flex w-full h-96 mt-20 justify-center items-center bg-[url('~/images/informationPage/heroBackground.jpg')] bg-cover bg-no-repeat bg-fixed shadow-[inset_0_0_0_1000px_rgba(0,0,0,0.6)]">
         <div className="flex flex-col w-full items-center justify-center leading-9">
           <h1 className="text-xl uppercase tracking-widest text-[#fafafa]">

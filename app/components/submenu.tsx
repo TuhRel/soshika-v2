@@ -6,17 +6,17 @@ import image2 from "~/images/submenu/woods-photoshoot-2.jpg"
 
 export default function Submenu() {
   return (
-    <div className="flex flex-col md:h-screen w-full justify-center items-center bg-slate-50">
+    <div className="flex flex-col lg:h-screen w-full justify-center items-center bg-slate-50">
       <div className="md:grid md:grid-cols-3 h-full w-full bg-stone-300">
         <Box className="flex object-cover h-full max-md:hidden">
           <img className="object-cover" src={image1} alt="alt" />
         </Box>
-        <Box className="grid grid-rows-3 h-full justify-center items-center tracking-wider uppercase py-8 md:py-24 md:px-5">
+        <Box className="grid grid-rows-3 h-full justify-center items-center tracking-wider uppercase py-8 lg:py-24 lg:px-5">
           <Link to='/about' className="flex flex-col justify-center items-center cursor-pointer hover:scale-110 transition-all ease-in-out py-4">
             <h1 className="text-2xl font-light">
               About Me
             </h1>
-            <p className="text-base font-thin">
+            <p className="text-base text-center font-thin">
               Get to know the photographer
             </p>
             <TrendingFlat className="text-2xl font-thin scale-x-150 scale-y-50" />

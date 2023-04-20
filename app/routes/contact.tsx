@@ -109,11 +109,11 @@ export default function Contact() {
   return (
     <Layout>
       <div className="flex flex-col w-full justify-center items-center bg-slate-50">
-        <div className="md:grid md:grid-cols-2 gap-5 w-full h-full mt-20">
-          <div className="flex flex-col w-full justify-center items-center md:bg-[url('~/images/contactPage/contact-form-img.jpg')] bg-cover max-[640]:hidden">
+        <div className="lg:grid lg:grid-cols-2 gap-5 w-full h-full mt-20">
+          <div className="flex flex-col w-full justify-center items-center lg:bg-[url('~/images/contactPage/contact-form-img.jpg')] bg-cover max-lg:hidden">
             {/* <img src={image} alt="alt" /> */}
           </div>
-          <div className="flex flex-col w-full justify-center items-center object-cover overflow-hidden">
+          <div className="flex flex-col md:h-full w-full justify-center items-center object-cover overflow-hidden">
             <form onSubmit={() => setUploadSuccess(true)} action='/contact' method="POST" className="flex flex-col w-full justify-center items-center p-5">
               <h1 className="text-2xl font-light tracking-widest text-center uppercase p-5">
                 Let's Connect!

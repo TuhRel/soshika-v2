@@ -16,7 +16,7 @@ export default function Portfolio() {
     <Layout>
       <div className="flex w-full justify-center items-center bg-slate-50 p-2.5">
         <div className="flex md:w-11/12 flex-col justify-center items-center mt-24">
-          <div className="grid md:grid-cols-3 w-full gap-6 justify-center items-center">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 w-full gap-6 justify-center items-center">
             {images.slice(1).map((image: string, index) => {
               return (
                 <div className="w-full h-full" key={image}>

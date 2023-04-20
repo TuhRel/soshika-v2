@@ -21,7 +21,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className='fixed top-0 content-center h-14 md:h-20 md:pl-12 md:pr-12 w-full font-thin backdrop-blur-sm bg-slate-50 z-10'>
+    <nav className='fixed top-0 content-center items-center justify-center h-14 lg:h-20 lg:pl-12 lg:pr-12 w-full font-thin backdrop-blur-sm bg-slate-50 z-10'>
       {toggle && <div className="flex h-screen w-full items-center justify-center bg-slate-50 opacity-95 backdrop-blur-sm">
         <div className='block fixed top-0 left-0 translate-x-[25%] translate-y-[50%] ml-2.5 mt-2.5 scale-150 text-base'>
           <Link to='https://www.instagram.com/soshikaphotography' target='_blank' rel='noopener noreferrer' className='p-1.5'>
@@ -67,11 +67,11 @@ export default function Navbar() {
           </div>
         </div>
       </div>}
-        <div className='flex flex-row justify-between h-14 md:h-20 w-full items-center'>
-          <Link to='/' prefetch='intent' className='tracking-wider uppercase ml-5'>
+        <div className='flex flex-row justify-between h-14 lg:h-20 w-full items-center'>
+          <Link to='/' prefetch='intent' className='tracking-wider uppercase max-lg:ml-5'>
             SoShika Photography
           </Link>
-          <div className='flex flex-row justify-between items-center h-full p-4 max-md:hidden'>
+          <div className='flex flex-row justify-between items-center h-full p-4 max-lg:hidden'>
             <div className='flex uppercase tracking-wider'>
               <div>
                 <Link to='/' prefetch='intent' className='flex p-4 cursor-pointer hover:border-b hover:ease-in-out hover:border-b-black'>
@@ -105,7 +105,7 @@ export default function Navbar() {
               </div>
             </div>
         </div>
-        <div className="md:hidden mr-5" onClick={handleOpen}>
+        <div className="lg:hidden mr-5" onClick={handleOpen}>
           <MenuIcon className="scale-150"/>
         </div>
         </div>
