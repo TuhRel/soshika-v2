@@ -20,7 +20,7 @@ export default function HeroSection() {
               <img className="object-cover" src={image2} alt='alt' />
             </div>
           </div>
-          <div className="flex md:flex-col justify-center items-center max-[640px]:hidden">
+          <div className="flex md:flex-col justify-center items-center max-md:hidden">
             <div className="text-center items-center justify-center pl-5">
               <h1 className="tracking-wider text-xl font-light pt-4 md:pb-1 uppercase">
                 Est.
@@ -29,7 +29,7 @@ export default function HeroSection() {
                 2020
               </h2>
               <p className="tracking-wider pt-3 pb-3 md:pt-12 md:pb-12 font-light text-xl uppercase">Orlando & <br/> Local Area <br/> Photographer</p>
-              <h3 className="text-2xl font-[weight-300] tracking-wider uppercase">SoShika <br/> Photography</h3>
+              <h3 className="text-2xl tracking-wider uppercase">SoShika <br/> Photography</h3>
             </div>
           </div>
           </div>
