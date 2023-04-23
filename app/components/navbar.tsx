@@ -66,7 +66,8 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
-      </div>}
+      </div>
+      }
         <div className='flex flex-row justify-between h-14 lg:h-20 w-full items-center'>
           <Link to='/' prefetch='intent' className='tracking-wider uppercase max-lg:ml-5'>
             SoShika Photography

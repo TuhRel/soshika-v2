@@ -12,7 +12,18 @@ const s3 = new S3({
     secretAccessKey: process.env.SSP_SECRET_ACCESS_KEY,
 })
 
-// Get presigned URLs for s3 bucket items and display them in the app (future - store them in mongodb)
+// Get presigned URL for item
+export const generatePresignedUrl = async (key: string, expirationTimeInSeconds: number): Promise<string> => {
+  const params = {
+    Bucket: process.env.SSP_BUCKET_NAME || '',
+    Key: key,
+    Expires: expirationTimeInSeconds,
+  };
+
+  return s3.getSignedUrlPromise('getObject', params);
+};
+
+// Get presigned URLs for s3 bucket items in folder and display them in the app (future - store them in mongodb)
 export const generatePresignedUrlsForFolder = async (folderPath: string, expirationTimeInSeconds: number): Promise<string[]> => {
   const params = {
     Bucket: process.env.SSP_BUCKET_NAME || '',
@@ -29,16 +40,6 @@ export const generatePresignedUrlsForFolder = async (folderPath: string, expirat
   
   // console.log(presignedUrls);
   return presignedUrls;
-};
-
-export const generatePresignedUrl = async (key: string, expirationTimeInSeconds: number): Promise<string> => {
-  const params = {
-    Bucket: process.env.SSP_BUCKET_NAME || '',
-    Key: key,
-    Expires: expirationTimeInSeconds,
-  };
-
-  return s3.getSignedUrlPromise('getObject', params);
 };
 
 //Upload profile photo (not used)
