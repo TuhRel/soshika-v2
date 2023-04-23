@@ -1,5 +1,3 @@
-import { json } from "@remix-run/node";
-import { validateName, validateEmail, validatePhone } from "./validators.server";
 import nodemailer from 'nodemailer'
 
 interface ContactForm {
@@ -22,29 +20,52 @@ export const sendEmail = async ({ email, firstName, lastName, phone, message, se
   });
 
   const emailOutput = `
-    <h3>Contact Details</h3>
-      <p>Name: ${firstName} ${lastName}</p>
-      <p>Phone: ${phone}</p>
-      <p>Email: ${email}</p>
-    <h3>Request Details</h3>
-      <p>Service: ${service}</p>
-      <p>Message: ${message}</p>
+  <html>
+    <head>
+      <style>
+        div {
+          white-space: no-wrap;
+        }
+        h1 {
+          font-size: 2rem;
+          color: blue;
+        }
+        h2 {
+          font-size: 1rem;
+          color: black
+        }
+        p {
+          color: black;
+          font-size: 1rem;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Contact Details</h1>
+        <div><h2>Name:</h2> <p>${firstName} ${lastName}</p></div>
+        <div><h2>Phone:</h2> <p>${phone}</p></div>
+        <div><h2>Email:</h2> <p>${email}</p></div>
+      <h1>Request Details</h1>
+        <h2>Service:</h2> <p>${service}</p>
+        <h2>Message:</h2> <p>${message}</p>
+    </body>
+  </html>
   `
 
   const customerMail = {
     from: `SoShika Photography - Shika Johnson <${process.env.EMAIL}>`,
     to: email,
-    subject: "Thank you for your request.",
-    text: "Your request regarding the following details has been received and someone will get back to you within 48 hours.",
-    html: emailOutput
+    subject: 'Thank you for your request.',
+    text: 'Your contact request to SoShika Photography has been received and someone will get back with you as soon as possible.',
+    html: `<p>Your request contact request to SoShika Photography has been received and someone will get back with you as soon as possible.</p> ${emailOutput}`
   };
 
   const photographerMail = {
     from: `SoShika Photography Request <${process.env.EMAIL}>`,
     to: process.env.EMAIL,
     subject: 'SoShika Photography Contact Request',
-    text: `Details for contact request below:`,
-    html: emailOutput
+    text: 'Details for contact request below:',
+    html: `Hey Boss Lady, details for the contact request are below. ${emailOutput}`
   }
 
   try {
