@@ -11,10 +11,10 @@ import { useLoaderData } from "@remix-run/react";
 import { generatePresignedUrlsForFolder } from "~/utils/s3.server";
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const userId = await requireUserId(request)
-  const users = await getOtherUsers(userId)
+  // const userId = await requireUserId(request)
+  // const users = await getOtherUsers(userId)
   const images = await generatePresignedUrlsForFolder('home-page-images', 600)
-  return json({ users, images })
+  return json({ images })
 }
 
 export default function Home() {
