@@ -1,6 +1,7 @@
 import { LoaderFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { generatePresignedUrlsForFolder } from "~/utils/s3.server";
+import { useRouteLoaderData } from "@remix-run/react";
 
 
 // export const action: ActionFunction = async ({ request }) => {
@@ -14,7 +15,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 }
 
 export default function Gallery() {
-  const { images } = useLoaderData<{images: string[]}>()
+  const { images } = useLoaderData<{ images: string[] }>()
   // console.log(images)
 
   return (
