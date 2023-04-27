@@ -27,7 +27,7 @@ export default function Admin() {
     <>
     <Outlet />
     <div className="flex h-screen w-full bg-slate-400">
-      <div className="flex flex-col w-full justify-center items-center bg-slate-400">
+        <div className="flex flex-col w-full justify-center items-center bg-slate-400">
           <Button variant="contained" component="label">
             Upload
             <input id="imageInput" type="file" multiple hidden onChange={handleUpload} />
