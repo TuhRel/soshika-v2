@@ -4,9 +4,11 @@ import image3 from '~/images/heroSection/bijou-wedding-3.jpg'
 
 
 export default function HeroSection() {
+  // lg:bg-[url('~/images/heroSection/lincoln-memorial-engagement.jpg')]
+
   return (
     <div className="flex pt-14 md:pt-24 lg:h-screen h-96 w-full relative justify-center items-center bg-slate-50">
-      <div className="flex items-center justify-center w-full h-full lg:bg-[url('~/images/heroSection/lincoln-memorial-engagement.jpg')] bg-cover bg-fixed">
+      <div className="flex items-center justify-center w-full h-full bg-cover bg-fixed">
         <div className="flex h-full w-screen items-center justify-center bg-cover backdrop-blur-sm">
         <div className="grid md:z-10 w-5/6 lg:grid-cols-[80%_20%] pt-12 -m-32 lg:pt-0 lg:m-0">
           <div className="flex flex-row gap-6">
