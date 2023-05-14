@@ -57,7 +57,7 @@ export const sendEmail = async ({ email, firstName, lastName, phone, message, se
     to: email,
     subject: 'Thank you for your request.',
     text: 'Your contact request to SoShika Photography has been received and someone will get back with you as soon as possible.',
-    html: `<p>Your request contact request to SoShika Photography has been received and someone will get back with you as soon as possible.</p> ${emailOutput}`
+    html: `<p>Your contact request to SoShika Photography has been received and someone will get back with you as soon as possible.</p> ${emailOutput}`
   };
 
   const photographerMail = {
